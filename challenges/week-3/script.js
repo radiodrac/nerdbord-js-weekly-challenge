@@ -4,25 +4,21 @@ const openModalBtn = document.querySelector(".btn-open");
 const closeModalBtn = document.querySelector(".btn-close");
 
 function openModal() {
-    modal.classList.remove("hidden");
-    overlay.classList.remove("hidden");
-    modal.classList.remove("bounceout");
-    setTimeout(function() {
-        modal.classList.add("bouncein")
-    }, 0);
+    modal.classList.toggle("hidden");
+    modal.classList.toggle("bouncein");
+    modal.classList.toggle("bounceout");
+    overlay.classList.toggle("hidden");
 }
 
 function closeModal() {
     setTimeout(function() {
-        modal.classList.add("hidden")
+        modal.classList.toggle("hidden")
     }, 450);
     setTimeout(function() {
-        overlay.classList.add("hidden")
+        overlay.classList.toggle("hidden")
     }, 300);
-    modal.classList.remove("bouncein");
-    setTimeout(function() {
-        modal.classList.add("bounceout")
-    }, 0);
+    modal.classList.toggle("bouncein");
+    modal.classList.toggle("bounceout");
 }
 
 openModalBtn.addEventListener("click", openModal);
